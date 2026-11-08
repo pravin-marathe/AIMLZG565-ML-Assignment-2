@@ -63,6 +63,37 @@ if st.button("Predict"):
     st.success("Prediction completed successfully!")
     st.dataframe(result.head(100), use_container_width=True)
 
+ # Evaluate predictions against actual target values
+        if "y" in data.columns:
+            from sklearn.metrics import confusion_matrix, classification_report
+
+            y_true = data["y"].replace({
+                "no": 0, "yes": 1,
+                "No": 0, "Yes": 1
+            }).astype(int)
+
+            st.subheader("Confusion Matrix")
+            cm = confusion_matrix(y_true, predictions, labels=[0, 1])
+            cm_df = pd.DataFrame(
+                cm,
+                index=["Actual No", "Actual Yes"],
+                columns=["Predicted No", "Predicted Yes"]
+            )
+            st.dataframe(cm_df)
+
+            st.subheader("Classification Report")
+            report = classification_report(
+                y_true, predictions,
+                labels=[0, 1],
+                target_names=["No", "Yes"],
+                output_dict=True,
+                zero_division=0
+            )
+            st.dataframe(pd.DataFrame(report).transpose())
+        else:
+            st.info("Evaluation requires a 'y' column in the uploaded CSV.")
+
+    
     st.download_button(
         "Download Predictions",
         result.to_csv(index=False),
