@@ -90,7 +90,7 @@ if st.button("Predict"):
                 zero_division=0
             )
             st.dataframe(pd.DataFrame(report).transpose())
-        else:
+    else:
             st.info("Evaluation requires a 'y' column in the uploaded CSV.")
 
 
