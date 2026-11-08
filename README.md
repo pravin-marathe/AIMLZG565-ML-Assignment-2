@@ -45,3 +45,16 @@ The following table compares five machine learning classification models using A
 - Logistic Regression achieved the highest F1-score.
 - The complete performance results are available in model_comparison.csv.
 
+### e. Streamlit Application
+
+The Machine Learning classification application is deployed on Streamlit Community Cloud.
+
+Live Application:
+https://2026ak05544-ml-assignment2.streamlit.app/
+
+The application supports:
+- Selection of five trained ML models
+- Uploading test data in CSV format
+- Display of model evaluation metrics
+- Prediction using saved models
+- Downloading prediction results
