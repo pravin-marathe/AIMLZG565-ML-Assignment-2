@@ -64,7 +64,7 @@ if st.button("Predict"):
     st.dataframe(result.head(100), use_container_width=True)
 
  # Evaluate predictions against actual target values
-        if "y" in data.columns:
+    if "y" in data.columns:
             from sklearn.metrics import confusion_matrix, classification_report
 
             y_true = data["y"].replace({
