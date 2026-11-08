@@ -1,4 +1,4 @@
-
+app_code = '''
 import streamlit as st
 import pandas as pd
 import joblib
@@ -93,10 +93,16 @@ if st.button("Predict"):
         else:
             st.info("Evaluation requires a 'y' column in the uploaded CSV.")
 
-    
+
     st.download_button(
         "Download Predictions",
         result.to_csv(index=False),
         file_name="predictions.csv",
         mime="text/csv"
     )
+'''
+
+with open("app.py", "w", encoding="utf-8") as f:
+    f.write(app_code)
+
+print("app.py created successfully!")
