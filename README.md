@@ -39,11 +39,30 @@ The following table compares five machine learning classification models using A
 | SVM | 0.9001 | 0.9072 | 0.6605 | 0.3015 | 0.4140 | 0.4016 |
 
 ### Observations
-- Logistic Regression achieved the highest accuracy (90.12%).
-- SVM achieved the highest AUC (0.9072) and precision (0.6605).
-- Naive Bayes achieved the highest recall (0.5198).
-- Logistic Regression achieved the highest F1-score.
-- The complete performance results are available in model_comparison.csv.
+### Logistic Regression
+- Achieved the highest accuracy (90.12%) and F1-score (0.4518) among all five models.
+- Its high AUC (0.9056) indicates good class discrimination, making it a strong overall performer.
+
+### Decision Tree
+- Achieved 87.46% accuracy and an AUC of 0.7015.
+- Its recall (0.4754) was higher than Logistic Regression and SVM, but its lower AUC indicates comparatively weaker class discrimination.
+
+### K-Nearest Neighbors (KNN)
+- Achieved 89.62% accuracy and an AUC of 0.8277.
+- Although its accuracy was competitive, its lower recall (0.3403) indicates that many actual subscribers were not identified.
+
+### Naive Bayes
+- Achieved the highest recall (0.5198), identifying the largest proportion of actual subscribers.
+- However, its lower precision (0.4059) and accuracy (85.48%) indicate a higher proportion of false-positive predictions.
+
+### Support Vector Machine (SVM)
+- Achieved the highest AUC (0.9072) and precision (0.6605), with accuracy of 90.01%.
+- Its high precision indicates fewer false positives among predicted subscribers, although its recall (0.3015) was the lowest.
+
+### Overall Conclusion
+Logistic Regression is the preferred overall model based on its highest accuracy and F1-score. SVM is a strong alternative when precision and AUC are prioritized, while Naive Bayes is suitable when higher recall is important. These results demonstrate that model selection should consider multiple evaluation metrics rather than accuracy alone.
+
+The complete performance comparison, including Accuracy, AUC, Precision, Recall, F1-score, and MCC, is provided in "model_comparison.csv".
 
 ### e. Streamlit Application
 
